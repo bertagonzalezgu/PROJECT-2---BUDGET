@@ -3,3 +3,7 @@ export interface Service{
     description: string;
     price: number
 };
+
+export interface ServiceCardProps{
+    serviceData: Service;
+}
