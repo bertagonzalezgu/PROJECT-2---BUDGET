@@ -1,6 +1,7 @@
 import type {ServiceCardProps} from "../types/service.types";
 
-export default function ServiceCard({serviceData}: ServiceCardProps){
+
+export default function ServiceCard({serviceData, isServiceSelected, onToggle}: ServiceCardProps){
     return( 
         <li className="bg-white rounded-3xl shadow-md p-8 my-5 border border-gray-100 flex items-center justify-between max-w-3xl mx-auto">
             <div className="flex-1 pr-4">
@@ -15,7 +16,11 @@ export default function ServiceCard({serviceData}: ServiceCardProps){
                 <div className="flex items-center justify-end gap-3 flex-1">
                     <label htmlFor={`add-service-${serviceData.title}`}
                     className="text-sm font-semibold text-gray-700 cursor-pointer select-none">Afegir</label>
-                    <input type="checkbox" id={`add-service-${serviceData.title}`} aria-label={`Afegir servei ${serviceData.title}`}
+                    <input 
+                    type="checkbox" 
+                    checked= {isServiceSelected}
+                    onChange={() => onToggle(serviceData.id)}
+                    id={`add-service-${serviceData.title}`} aria-label={`Afegir servei ${serviceData.title}`}
                     className="w-5 h-5 rounded cursor-pointer"/>
                 </div> 
         </li>          

@@ -2,11 +2,27 @@ import DataServices from './data/services.json'
 import ServiceCard from './components/ServiceCard'
 import type { Service } from './types/service.types'
 import bgHeader from './assets/img/bg-header.jpg'
+import { useState } from 'react'
 
 export default function App(){
+    const [selectedServices, setSelectedServices] = useState<Set<number>>(new Set());
+
     const servicesCardsList = DataServices.services.map((element: Service) => 
-    <ServiceCard key={element.title} serviceData={element} />)
+    <ServiceCard key={element.id} serviceData={element} isServiceSelected={selectedServices.has(element.id)} onToggle={toggleService} />)
     
+    function toggleService(id:number){
+        setSelectedServices(prevSelectedServices => {
+            const actualized = new Set(prevSelectedServices);
+
+            if(actualized.has(id)){
+                actualized.delete(id)
+            } else {
+                actualized.add(id)
+            }
+            return actualized;
+        });
+    };
+
     return (
         <>
         <header className="flex bg-linear-to-bl from-green-300 to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
