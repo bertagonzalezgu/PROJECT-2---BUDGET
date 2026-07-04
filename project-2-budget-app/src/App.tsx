@@ -3,6 +3,9 @@ import ServiceCard from './components/ServiceCard'
 import type { Service } from './types/service.types'
 import bgHeader from './assets/img/bg-header.jpg'
 import { useState } from 'react'
+import calculatePrice from './services/priceCalculator'
+import PriceCounter from './components/PriceCounter'
+
 
 export default function App(){
     const [selectedServices, setSelectedServices] = useState<Set<number>>(new Set());
@@ -23,6 +26,8 @@ export default function App(){
         });
     };
 
+    const totalPriceServicesSelected = calculatePrice(DataServices.services, selectedServices)
+
     return (
         <>
         <header className="flex bg-linear-to-bl from-green-300 to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
@@ -33,6 +38,7 @@ export default function App(){
            <ul className='list-none p-0 m-0 space-y-6'>
                 {servicesCardsList}  
             </ul> 
+            <PriceCounter total={totalPriceServicesSelected}/>
         </main>
         </>      
     );
