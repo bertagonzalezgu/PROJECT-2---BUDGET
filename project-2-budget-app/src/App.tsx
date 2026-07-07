@@ -18,8 +18,7 @@ export default function App(){
 
     const isWebSelected = (undefined !== webId) && selectedServices.has(webId)  
 
-    const [webConfig, setWebConfig] = useState<WebConfig>({pages:1, languages: 1}
-    )
+    const [webConfig, setWebConfig] = useState<WebConfig>({pages:1, languages: 1})
 
     function toggleService(id:number){
         setSelectedServices(prevSelectedServices => {
@@ -46,7 +45,7 @@ export default function App(){
         }
     };
 
-    const totalPriceServicesSelected = calculatePrice(DataServices.services, selectedServices)
+    const totalPriceServicesSelected = calculatePrice(DataServices.services, selectedServices, webConfig)
 
     return (
         <>
