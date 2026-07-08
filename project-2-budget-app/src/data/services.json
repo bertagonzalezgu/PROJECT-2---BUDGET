@@ -1,0 +1,7 @@
+{ 
+ "services": [ 
+ {"id": 1 , "title": "SEO", "description": "Posicionament orgànic al cercador per atraure trànsit qualificat", "price": 300}, 
+ {"id": 2 , "title": "Ads", "description": "Campanyes de publicitat online (Google/Meta Ads) per generar clients ràpidament", "price": 400}, 
+ {"id": 3 , "title": "Web", "description": "Disseny i desenvolupament d'una web responsive a mida", "price": 500} 
+ ] 
+ }
