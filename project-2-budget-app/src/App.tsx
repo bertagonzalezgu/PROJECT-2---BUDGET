@@ -62,7 +62,7 @@ export default function App(){
     const totalPriceServicesSelected = calculatePrice(DataServices.services, selectedServices, webConfig)
 
     return (
-        <>
+        <body className='m-5'>
         <header className="flex bg-linear-to-bl from-white to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
             <h1 className="absolute text-3xl font-extrabold text-black justify-center tracking-wide">Aconsegueix la millor qualitat</h1>
         </header>
@@ -72,6 +72,6 @@ export default function App(){
             </ul>
             <PriceCounter total={totalPriceServicesSelected}/>
         </main>
-        </>      
+        </body>      
     );
 };

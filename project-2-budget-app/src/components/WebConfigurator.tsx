@@ -1,7 +1,7 @@
 import type { WebConfiguratorProps } from "../types/service.types";
 import add from '../assets/icons/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
 import subtract from '../assets/icons/remove_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import info from '../assets/icons/info_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
+import info from '../assets/icons/info_24dp_5985E1_FILL0_wght400_GRAD0_opsz24.svg'
 import ModalContentData from '../data/modal.json'
 import { useRef, useState } from "react";
 import { ModalCard } from "./ModalCard";
@@ -19,14 +19,14 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
     return (
         <section className="flex flex-row flex-wrap items-center justify-end gap-8 w-full">
             <div className="flex items-center gap-4">
+                <button className="cursor-pointer" onClick={(e) => {
+                    lastBtnRef.current = e.currentTarget;
+                    setCurrentModal("pages");
+                    }}>
+                    <img src={info} alt="Icono de información"/>
+                </button>
                 <div>
                     <h3 className="text-base font-medium tracking-wider text-gray-700">Nombre de pàgines: </h3>
-                    <button onClick={(e) => {
-                        lastBtnRef.current = e.currentTarget;
-                        setCurrentModal("pages");
-                        }}>
-                        <img src={info} alt="Icono de información"/>
-                    </button>
                 </div>
                 <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm">
                     <button onClick={() => onPagesChange(webConfig.pages -1)} aria-label= {`Menys pàgines ${webConfig.pages}`}>
@@ -39,14 +39,14 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
                 </div>
             </div>
             <div className="flex items-center gap-4">
+                <button className="cursor-pointer" onClick={(e) => {
+                    lastBtnRef.current = e.currentTarget;
+                    setCurrentModal("languages");
+                    }}>
+                    <img src={info} alt="Icono de información"/>
+                </button>
                 <div>
                     <h3 className="text-base font-medium tracking-wider text-gray-700">Nombre d'idiomes: </h3>
-                    <button onClick={(e) => {
-                        lastBtnRef.current = e.currentTarget;
-                        setCurrentModal("languages");
-                        }}>
-                        <img src={info} alt="Icono de información"/>
-                    </button>
                 </div>
                 <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm">
                     <button onClick={() => onLanguagesChange(webConfig.languages -1)} aria-label={`Menys idiomes ${webConfig.languages}`}>
