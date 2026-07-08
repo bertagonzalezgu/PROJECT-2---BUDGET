@@ -16,14 +16,6 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
         lastBtnRef.current?.focus();
     }
 
-    const [currentModal, setCurrentModal] = useState<"pages" | "languages" | null>(null);
-    const lastBtnRef = useRef<HTMLButtonElement>(null);
-
-    const handleClose = () => {
-        setCurrentModal(null);
-        lastBtnRef.current?.focus();
-    }
-
     return (
         <section className="flex flex-row flex-wrap items-center justify-end gap-8 w-full">
             <div className="flex items-center gap-4">
@@ -35,12 +27,6 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
                 </button>
                 <div>
                     <h3 className="text-base font-medium tracking-wider text-gray-700">Nombre de pàgines: </h3>
-                    <button onClick={(e) => {
-                        lastBtnRef.current = e.currentTarget;
-                        setCurrentModal("pages");
-                        }}>
-                        <img src={info} alt="Icono de información"/>
-                    </button>
                 </div>
                 <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm">
                     <button onClick={() => onPagesChange(webConfig.pages -1)} aria-label= {`Menys pàgines ${webConfig.pages}`}>
@@ -61,12 +47,6 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
                 </button>
                 <div>
                     <h3 className="text-base font-medium tracking-wider text-gray-700">Nombre d'idiomes: </h3>
-                    <button onClick={(e) => {
-                        lastBtnRef.current = e.currentTarget;
-                        setCurrentModal("languages");
-                        }}>
-                        <img src={info} alt="Icono de información"/>
-                    </button>
                 </div>
                 <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm">
                     <button onClick={() => onLanguagesChange(webConfig.languages -1)} aria-label={`Menys idiomes ${webConfig.languages}`}>
