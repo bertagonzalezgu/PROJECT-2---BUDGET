@@ -6,12 +6,16 @@ import calculatePrice from '../services/priceCalculator'
 import PriceCounter from '../components/PriceCounter'
 import WebConfigurator from '../components/WebConfigurator'
 import ClientForm from '../components/ClientForm'
-
+import type { FormInputs } from '../types/form.types'
+import budgetGenerator from '../services/idGenerator'
+import useBudgetList from '../hooks/useBudgetList'
 
 export default function App(){
     const [selectedServices, setSelectedServices] = useState<Set<number>>(new Set());
     
     const [webConfig, setWebConfig] = useState<WebConfig>({pages:1, languages: 1})
+
+    const {budgets, addBudgetToList} = useBudgetList();
 
     function toggleService(id:number){
         setSelectedServices(prevSelectedServices => {
@@ -61,7 +65,26 @@ export default function App(){
     });
     
     const totalPriceServicesSelected = calculatePrice(DataServices.services, selectedServices, webConfig)
+    
+    const webId = DataServices.services.find(element => element.title === "Web")?.id
+    const isWebSelected = (undefined !== webId) && selectedServices.has(webId)  
 
+    function handleClientSubmit(dataFormInputs: FormInputs){
+        const selectedServicesNames: string[] =  DataServices.services
+                                            .filter(service => selectedServices.has(service.id))
+                                            .map(service => service.title);
+        
+        const saveWebConfig = isWebSelected? webConfig : undefined;
+        const newBudgetCreated = budgetGenerator(dataFormInputs, selectedServicesNames, totalPriceServicesSelected, saveWebConfig);
+
+        console.log("Pressupost generat:", newBudgetCreated);
+
+        addBudgetToList(newBudgetCreated);
+
+        setSelectedServices(new Set());
+        setWebConfig({pages: 1, languages: 1})
+    }
+                                    
     return (
         <div className='m-5'>
         <header className="flex bg-linear-to-bl from-white to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
@@ -73,7 +96,7 @@ export default function App(){
             </ul>
                 {selectedServices.size > 0 && (
                     <div>
-                        <ClientForm/>
+                        <ClientForm onClientSubmit={handleClientSubmit}/>
                     </div>
                 )}
             <PriceCounter total={totalPriceServicesSelected}/>

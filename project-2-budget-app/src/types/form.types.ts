@@ -1,7 +1,10 @@
 
 export interface FormInputs{
     name: string;
-    surname: string;
-    tel : number;
+    tel : string;
     email: string;
+}
+
+export interface ClientFormProps{
+    onClientSubmit: (data: FormInputs) => void
 }

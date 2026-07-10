@@ -1,13 +1,13 @@
 import { useForm } from 'react-hook-form'
 import arrowRight from '../assets/icons/keyboard_arrow_right_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import type { FormInputs } from '../types/form.types'
+import type { FormInputs, ClientFormProps} from '../types/form.types'
 
-export default function ClientForm(){
+export default function ClientForm({onClientSubmit}: ClientFormProps){
 
     const {register, handleSubmit, formState: {errors}} = useForm<FormInputs>()
 
     const onSubmit = handleSubmit((data) => {
-            console.log(data)
+            onClientSubmit(data)
         })
 
     return (
