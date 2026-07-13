@@ -9,6 +9,7 @@ import ClientForm from '../components/ClientForm'
 import type { FormInputs } from '../types/form.types'
 import budgetGenerator from '../services/idGenerator'
 import useBudgetList from '../hooks/useBudgetList'
+import BudgetList from '../components/BudgetList'
 
 export default function App(){
     const [selectedServices, setSelectedServices] = useState<Set<number>>(new Set());
@@ -16,7 +17,7 @@ export default function App(){
     const [webConfig, setWebConfig] = useState<WebConfig>({pages:1, languages: 1})
 
     const {budgets, addBudgetToList} = useBudgetList();
-
+    
     function toggleService(id:number){
         setSelectedServices(prevSelectedServices => {
             const actualized = new Set(prevSelectedServices);
@@ -95,10 +96,27 @@ export default function App(){
                 {servicesCardsList}    
             </ul>
                 {selectedServices.size > 0 && (
-                    <div>
-                        <ClientForm onClientSubmit={handleClientSubmit}/>
-                    </div>
+                        <div>
+                            <ClientForm onClientSubmit={handleClientSubmit}/>
+                        </div>
                 )}
+            <hr />
+            <div>
+                <div>
+                    <h1>Pressupostos en curs:</h1>
+                </div>
+                <div>
+                    <input type="text" name="" id="" />
+                    <ul>
+                        <li>Data</li>
+                        <li>Import</li>
+                        <li>Nom</li>
+                    </ul>
+                </div>
+                <div>
+                    <BudgetList budgets={budgets}/>
+                </div>
+            </div>
             <PriceCounter total={totalPriceServicesSelected}/>
         </main>
         </div>      
