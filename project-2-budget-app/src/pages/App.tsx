@@ -87,7 +87,7 @@ export default function App(){
     }
                                     
     return (
-        <div className='m-5'>
+        <div className='m-5 font-[Montserrat]'>
         <header className="flex bg-linear-to-bl from-white to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
             <h1 className="absolute text-3xl font-extrabold text-black justify-center tracking-wide">Aconsegueix la millor qualitat</h1>
         </header>
@@ -100,24 +100,37 @@ export default function App(){
                             <ClientForm onClientSubmit={handleClientSubmit}/>
                         </div>
                 )}
-            <hr />
-            <div>
-                <div>
-                    <h1>Pressupostos en curs:</h1>
-                </div>
-                <div>
-                    <input type="text" name="" id="" />
-                    <ul>
-                        <li>Data</li>
-                        <li>Import</li>
-                        <li>Nom</li>
-                    </ul>
-                </div>
-                <div>
-                    <BudgetList budgets={budgets}/>
-                </div>
-            </div>
             <PriceCounter total={totalPriceServicesSelected}/>
+            {selectedServices.size > 0 && (
+                <>
+                <hr className="mt-6 pt-6 border-t border-blue-200 w-fill"/>
+                <div className="max-w-3xl mx-auto">
+                    <div className="flex flex-row justify-between items-center mb-6">
+                        <div>
+                            <h1 className="text-2xl font-bold text-gray-900">
+                                Pressupostos en curs:
+                            </h1>
+                        </div>
+                        <div className="flex flex-row gap-5 items-center">
+                            <input 
+                                type="text" 
+                                placeholder="Buscar..."
+                                className="bg-white px-3 py-1 rounded-xl border border-gray-200 shadow-sm text-sm focus:outline-none focus:border-gray-400"/>
+                            <ul className="flex flex-row gap-4 text-sm font-medium text-gray-600">
+                                <li className="cursor-pointer hover:text-gray-90 transition-colors">Data</li>
+                                <li className="cursor-pointer text-gray-900 font-bold flex items-center gap-1">
+                                    Import <span className="text-xs">▽</span>
+                                </li>
+                                <li className="cursor-pointer hover:text-gray-90 transition-colors">Nom</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <BudgetList budgets={budgets}/>
+                    </div>
+                </div>  
+                </>  
+            )}
         </main>
         </div>      
     );
