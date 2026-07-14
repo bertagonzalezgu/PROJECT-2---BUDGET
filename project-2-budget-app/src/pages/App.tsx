@@ -101,8 +101,6 @@ export default function App(){
                         </div>
                 )}
             <PriceCounter total={totalPriceServicesSelected}/>
-            {selectedServices.size > 0 && (
-                <>
                 <hr className="mt-6 pt-6 border-t border-blue-200 w-fill"/>
                 <div className="max-w-3xl mx-auto">
                     <div className="flex flex-row justify-between items-center mb-6">
@@ -129,8 +127,6 @@ export default function App(){
                         <BudgetList budgets={budgets}/>
                     </div>
                 </div>  
-                </>  
-            )}
         </main>
         </div>      
     );

@@ -25,7 +25,7 @@ export default function BudgetCard({budget} : BudgetCardProps){
             </div>
             <div>
                 <h2 className="text-sm text-gray-500 font-semibold leading-snug max-w-xs tracking-wider">Total:</h2>
-                <span className="text-3xl font-extrabold text-gray-800">{budget.totalPrice}</span>
+                <span className="text-3xl font-extrabold text-gray-800">{budget.totalPrice}€</span>
             </div>
         </section>
     )
