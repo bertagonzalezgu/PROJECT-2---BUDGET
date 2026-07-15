@@ -1,8 +1,6 @@
 import DataServices from '../data/services.json'
 import ServiceCard from '../components/ServiceCard'
-import type { WebConfig, Service } from '../types/service.types'
-import { useState } from 'react'
-import calculatePrice from '../services/priceCalculator'
+import type { Service } from '../types/service.types'
 import PriceCounter from '../components/PriceCounter'
 import WebConfigurator from '../components/WebConfigurator'
 import ClientForm from '../components/ClientForm'
@@ -10,38 +8,13 @@ import type { FormInputs } from '../types/form.types'
 import budgetGenerator from '../services/idGenerator'
 import useBudgetList from '../hooks/useBudgetList'
 import BudgetList from '../components/BudgetList'
+import useBudgetCalculator from '../hooks/useBudgetCalculator'
 
 export default function App(){
-    const [selectedServices, setSelectedServices] = useState<Set<number>>(new Set());
     
-    const [webConfig, setWebConfig] = useState<WebConfig>({pages:1, languages: 1})
+    const {selectedServices, webConfig, toggleService, pagesCounter, languagesCounter, totalPriceServicesSelected, resetSelection} = useBudgetCalculator(DataServices.services)
 
     const {budgets, addBudgetToList} = useBudgetList();
-    
-    function toggleService(id:number){
-        setSelectedServices(prevSelectedServices => {
-            const actualized = new Set(prevSelectedServices);
-
-            if(actualized.has(id)){
-                actualized.delete(id)
-            } else {
-                actualized.add(id)
-            }
-            return actualized;
-        });
-    };
-
-    function pagesCounter(value: number){
-        if(value >= 1){
-            setWebConfig({...webConfig, pages: value})
-        }
-    };
-
-    function languagesCounter(value: number){
-        if(value >= 1){
-            setWebConfig({...webConfig, languages: value})
-        }
-    };
 
     const servicesCardsList = DataServices.services.map((element: Service) => {
 
@@ -65,7 +38,6 @@ export default function App(){
         )
     });
     
-    const totalPriceServicesSelected = calculatePrice(DataServices.services, selectedServices, webConfig)
     
     const webId = DataServices.services.find(element => element.title === "Web")?.id
     const isWebSelected = (undefined !== webId) && selectedServices.has(webId)  
@@ -81,9 +53,7 @@ export default function App(){
         console.log("Pressupost generat:", newBudgetCreated);
 
         addBudgetToList(newBudgetCreated);
-
-        setSelectedServices(new Set());
-        setWebConfig({pages: 1, languages: 1})
+        resetSelection()
     }
                                     
     return (
