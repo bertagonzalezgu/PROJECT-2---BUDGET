@@ -39,11 +39,12 @@ export default function BudgetList({budgets}: BudgetListProps){
                                 </ul>
                             </div>
                         </div>
+                        {filteredBudgets.length === 0 ? <p>No s'han trobat resultats</p> :
                         <ul>
                             {filteredBudgets.map(budget => (
                                 <li key={budget.id}><BudgetCard budget={budget}/></li>
                             ))}
-                        </ul>
+                        </ul>}
                     </div>
         </>
     )
