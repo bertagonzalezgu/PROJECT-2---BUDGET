@@ -19,7 +19,7 @@ export default function BudgetCard({budget} : BudgetCardProps){
                     <ul className="list-disc list-inside text-sm font-medium text-gray-700 space-y-1 pl-1">
                     {budget.checkedServices.map(service => (
                         <li key={service}>{service} {service === "Web" && budget.webConfig && (
-                            <span>{" "}({budget.webConfig.pages} pàgines, {budget.webConfig.languages}, llenguatges)</span>
+                            <span>{" "}({budget.webConfig.pages} pàgines, {budget.webConfig.languages} llenguatges)</span>
                         )}</li>
                     ))}
                     </ul>

@@ -1,19 +1,13 @@
 import BudgetCard from "./BudgetCard";
 import type { Budget } from '../types/budget.types'
-import { useState } from "react";
+import useSearchFilter from "../hooks/useSearchFilter";
 interface BudgetListProps{
     budgets: Budget[]
 }
 
 export default function BudgetList({budgets}: BudgetListProps){
 
-    const [searchTerm, setSearchTerm] = useState('')
-
-    const sortedBudgets = [...budgets].sort((a, b) => 
-        new Date(b.creationDate).getTime() - new Date(a.creationDate).getTime()
-    )
-
-    const filteredBudgets = sortedBudgets.filter((budget) => budget.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const {searchTerm, filteredBudgets, handleSortFilter, setSearchTerm} = useSearchFilter(budgets);
 
     if(budgets.length === 0){
         return <p>No tens cap pressupost en curs.</p>
@@ -31,11 +25,11 @@ export default function BudgetList({budgets}: BudgetListProps){
                             <div className="flex flex-row gap-5 items-center">
                                 <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Buscar..." className="bg-white px-3 py-1 rounded-xl border border-gray-200 shadow-sm text-sm focus:outline-none focus:border-gray-400"/>
                                 <ul className="flex flex-row gap-4 text-sm font-medium text-gray-600">
-                                    <li className="cursor-pointer hover:text-gray-90 transition-colors">Data</li>
-                                    <li className="cursor-pointer text-gray-900 font-bold flex items-center gap-1">Import
+                                    <li onClick={() => handleSortFilter("date")} className="cursor-pointer hover:text-gray-90 transition-colors">Data</li>
+                                    <li onClick={() => handleSortFilter("amount")} className="cursor-pointer text-gray-900 font-bold flex items-center gap-1">Import
                                         <span className="text-xs">▽</span>
                                     </li>
-                                    <li className="cursor-pointer hover:text-gray-90 transition-colors">Nom</li>
+                                    <li onClick={() => handleSortFilter("name")} className="cursor-pointer hover:text-gray-90 transition-colors">Nom</li>
                                 </ul>
                             </div>
                         </div>
