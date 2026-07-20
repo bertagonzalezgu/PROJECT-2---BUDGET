@@ -9,6 +9,8 @@ import budgetGenerator from '../services/idGenerator'
 import useBudgetList from '../hooks/useBudgetList'
 import BudgetList from '../components/BudgetList'
 import useBudgetCalculator from '../hooks/useBudgetCalculator'
+import { Routes, Route } from "react-router-dom"
+import BudgetDetailWrapper from '../components/BudgetDetailWrapper'
 
 export default function App(){
     
@@ -57,7 +59,9 @@ export default function App(){
     }
                                     
     return (
-        <div className='m-5 font-[Montserrat]'>
+        <Routes>
+        <Route path="/" element={
+            <div className='m-5 font-[Montserrat]'>
         <header className="flex bg-linear-to-bl from-white to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
             <h1 className="absolute text-3xl font-extrabold text-black justify-center tracking-wide">Aconsegueix la millor qualitat</h1>
         </header>
@@ -76,6 +80,9 @@ export default function App(){
                     <BudgetList budgets={budgets}/>
                 </div>
         </main>
-        </div>      
+        </div>
+        } />
+        <Route path="/pressupost/:id" element={<BudgetDetailWrapper budgets={budgets} />} />
+        </Routes>             
     );
 };

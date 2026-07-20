@@ -3,6 +3,8 @@ import type { Budget } from '../types/budget.types'
 import { getServicePrice } from '../services/priceCalculator'
 import type { Service } from '../types/service.types'
 import { formatDate } from '../utils/formatDate'
+import { Link } from 'react-router-dom'
+import arrowLeft from '../assets/icons/arrow_left_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
 
 interface BudgetDetailProps{
     budget: Budget
@@ -47,6 +49,9 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
                 <p>{budget.totalPrice}</p>
             </div>
         </div>
+        <Link to="/">
+            <img src={arrowLeft} alt="Arrow left" aria-label='Go back' />
+        </Link>
         </div>
     )
 }
