@@ -9,7 +9,7 @@ export default function BudgetCard({budget} : BudgetCardProps){
     return (
         <section className="container rounded-3xl shadow-md p-8 my-5 border flex flex-row max-w-3xl mx-auto bg-white border-gray-100 justify-between items-center">
             <div>
-                <h1 className="text-2xl font-bold text-gray-800 mb-1">{budget.name}</h1>
+                <h2 className="text-2xl font-bold text-gray-800 mb-1">{budget.name}</h2>
                 <p className="text-sm text-gray-500 font-medium leading-snug max-w-xs tracking-wider">{budget.email}</p>
                 <p className="text-sm text-gray-500 font-medium leading-snug max-w-xs tracking-wider">{budget.tel}</p>
             </div>
@@ -26,7 +26,7 @@ export default function BudgetCard({budget} : BudgetCardProps){
                 </div>
             </div>
             <div>
-                <h2 className="text-sm text-gray-500 font-semibold leading-snug max-w-xs tracking-wider">Total:</h2>
+                <h3 className="text-sm text-gray-500 font-semibold leading-snug max-w-xs tracking-wider">Total:</h3>
                 <span className="text-3xl font-extrabold text-gray-800">{budget.totalPrice}€</span>
             </div>
         </section>

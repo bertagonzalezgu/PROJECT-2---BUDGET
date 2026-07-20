@@ -29,18 +29,18 @@ export default function BudgetList({budgets}: BudgetListProps){
                             <div className="flex flex-row gap-5 items-center">
                                 <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Buscar..." className="bg-white px-3 py-1 rounded-xl border border-gray-200 shadow-sm text-sm focus:outline-none focus:border-gray-400"/>
                                 <ul className="flex flex-row gap-4 text-sm font-medium text-gray-600">
-                                    <li onClick={() => handleSortFilter("date")} className={getSortBtn("date")}>
+                                    <button type="button" onClick={() => handleSortFilter("date")} className={getSortBtn("date")}>
                                     Data {sortField === "date" && (
                                         <span className="text-xs">{sortDirection === "asc" ? "▲" : "▼"}</span>
-                                    )}</li>
-                                    <li onClick={() => handleSortFilter("amount")} className={getSortBtn("amount")}>
+                                    )}</button>
+                                    <button type="button" onClick={() => handleSortFilter("amount")} className={getSortBtn("amount")}>
                                     Import {sortField === "amount" && (
                                         <span className="text-xs">{sortDirection === "asc" ? "▲" : "▼"}</span>
-                                    )}</li>
-                                    <li onClick={() => handleSortFilter("name")} className={getSortBtn("name")}>
+                                    )}</button>
+                                    <button type="button" onClick={() => handleSortFilter("name")} className={getSortBtn("name")}>
                                     Nom {sortField === "name" && (
                                         <span className="text-xs">{sortDirection === "asc" ? "▲" : "▼"}</span>
-                                    )}</li>
+                                    )}</button>
                                 </ul>
                             </div>
                         </div>
