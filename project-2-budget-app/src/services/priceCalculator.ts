@@ -1,17 +1,20 @@
 import type { Service, WebConfig } from "../types/service.types";
 
 
-export function getServicePrice(service: Service, configs: WebConfig): number{
+export function getServicePrice(service: Service, configs?: WebConfig): number{
     let servicePrice;
 
         if(service.title === "Web"){
-            servicePrice = service.price + (configs.pages + configs.languages) * 30
+            if(configs === undefined){
+                servicePrice = service.price
+            }else{
+                servicePrice = service.price + (configs.pages + configs.languages) * 30
+            }
         }else{
             servicePrice = service.price
         }
 
         return servicePrice
-    
 }
 
 export default function calculatePrice(services: Service[], selectedIds: Set<number>, configs : WebConfig){
