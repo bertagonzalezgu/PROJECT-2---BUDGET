@@ -2,6 +2,7 @@ import DataServices from '../data/services.json'
 import type { Budget } from '../types/budget.types'
 import { getServicePrice } from '../services/priceCalculator'
 import type { Service } from '../types/service.types'
+import { formatDate } from '../utils/formatDate'
 
 interface BudgetDetailProps{
     budget: Budget
@@ -21,7 +22,7 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
             <div>
                 <div>
                     <h3>Data de creació: </h3>
-                    <p>{budget.creationDate}</p>
+                    <p>{formatDate(budget.creationDate)}</p>
                 </div>
                 <div>
                     <h3>Dades del Client: </h3>
