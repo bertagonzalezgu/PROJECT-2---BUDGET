@@ -61,25 +61,27 @@ export default function App(){
     return (
         <Routes>
         <Route path="/" element={
-            <div className='m-5 font-[Montserrat]'>
-                <header className="flex bg-linear-to-bl from-white to-blue-200 rounded-3xl shadow-sm max-w-3xl mx-auto p-24 mb-12 items-center justify-center relative border border-gray-100 overflow-hidden">
-                    <h1 className="absolute text-3xl font-extrabold text-black justify-center tracking-wide">Aconsegueix la millor qualitat</h1>
+            <div className='min-h-screen bg-gray-50/50 py-6 px-4 sm:py-10 sm:px-6 lg:px-8 font-[Montserrat] text-gray-800'>
+                <div className="w-full mx-auto space-y-8">
+                <header className="relative bg-linear-to-bl from-white to-blue-200 rounded-2xl sm:rounded-3xl shadow-sm p-8 sm:p-12 md:p-16 flex items-center justify-center border border-gray-100 overflow-hidden text-center">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 tracking-wide">Aconsegueix la millor qualitat</h1>
                 </header>
                 <main className="max-w-3xl mx-auto">
-                <ul className='list-none p-0 m-0 space-y-6'>
+                    <ul className='list-none p-0 m-0 space-y-6'>
                         {servicesCardsList}    
                     </ul>
+                    <PriceCounter total={totalPriceServicesSelected}/>
                         {selectedServices.size > 0 && (
                                 <div>
                                     <ClientForm onClientSubmit={handleClientSubmit}/>
                                 </div>
                         )}
-                    <PriceCounter total={totalPriceServicesSelected}/>
                         <hr className="mt-6 pt-6 border-t border-blue-200 w-fill"/>
                         <div>
                             <BudgetList budgets={budgets}/>
                         </div>
                 </main>
+                </div>
             </div>
         } />
         <Route path="/budget" element={<BudgetDetailPage budgets={budgets}/>}/>
