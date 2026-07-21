@@ -37,7 +37,7 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
                         <h1 className="text-3xl font-extrabold text-gray-800 tracking-tight py-4">Desglossament del pressupost</h1>
                         <p className="text-sm font-medium text-gray-400 mt-1">Nº de pressupost: <span className="font-bold text-gray-600">#{budget.id}</span>
                         </p>
-                        <button onClick={handleCopyUrl}>{copied? "Copiat!" : "Copiar URL"}</button>
+                        <button className="bg-blue-50/50 border-blue-200 border px-4 py-2 rounded-2xl my-4 self-start sm:self-auto" onClick={handleCopyUrl}>{copied? "Copiat!" : "Copiar URL"}</button>
                     </div>
                     <div className="bg-blue-50/50 border-blue-200 border px-4 py-2 rounded-2xl self-start sm:self-auto">
                         <span className="text-xs text-blue-600 font-semibold uppercase tracking-wider block">Data de creació</span>
