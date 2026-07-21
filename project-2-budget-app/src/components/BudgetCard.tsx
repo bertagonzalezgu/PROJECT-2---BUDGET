@@ -15,23 +15,26 @@ export default function BudgetCard({budget} : BudgetCardProps){
                     <p className="text-xs sm:text-sm text-gray-500 font-medium truncate">{budget.email}</p>
                     <p className="text-xs sm:text-sm text-gray-500 font-medium">{budget.tel}</p>
                 </div>
-                <div className="flex-1 w-full md:w-auto border-t md:border-t-0 pt-3 md:pt-0 border-gray-100">
-                    <h3 className="text-xs sm:text-sm text-gray-800 font-bold mb-1">Serveis contractats:</h3>
-                    <ul className="list-disc list-inside text-xs sm:text-sm font-medium text-gray-600 space-y-1">
-                        {budget.checkedServices.map(service => (
-                            <li key={service} className="truncate">{service} {service === "Web" && budget.webConfig && (
-                                <span className="text-gray-500 text-xs">{" "}({budget.webConfig.pages} pàgines, {budget.webConfig.languages} llenguatges)</span>
-                            )}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto border-t md:border-t-0 pt-3 md:pt-0 border-gray-100">
-                    <div>
-                        <h3 className="text-xs text-gray-500 font-semibold block mr-1">Total:</h3>
-                        <span className="text-xl sm:text-2xl font-extrabold text-gray-800">{budget.totalPrice}€</span>
+
+                <div className="flex flex-col sm:flex-row xl:flex-row items-start sm:items-center justify-between w-full xl:w-auto gap-4 border-t xl:border-t-0 pt-3 xl:pt-0 border-gray-100 flex-1 min-w-0">
+                    <div className="flex-1 min-w-0">
+                        <h3 className="text-xs sm:text-sm text-gray-800 font-bold mb-1">Serveis contractats:</h3>
+                        <ul className="list-disc list-inside text-xs sm:text-sm font-medium text-gray-600 space-y-1">
+                            {budget.checkedServices.map(service => (
+                                <li key={service} className="truncate">{service} {service === "Web" && budget.webConfig && (
+                                    <span className="text-gray-500 text-xs">{" "}({budget.webConfig.pages} pàgines, {budget.webConfig.languages} llenguatges)</span>
+                                )}</li>
+                            ))}
+                        </ul>
                     </div>
-                    <div className="transition-all duration-200 transform opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
-                        <img className="w-6 h-6 sm:w-8 sm:h-8" src={arrowRight} alt="Arrow right" />
+                    <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-gray-100">
+                        <div className="text-left sm:text-right">
+                            <h3 className="text-xs text-gray-500 font-semibold block mr-1">Total:</h3>
+                            <span className="text-xl sm:text-2xl font-extrabold text-gray-800">{budget.totalPrice}€</span>
+                        </div>
+                        <div className="transition-all duration-200 transform opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
+                            <img className="w-6 h-6 sm:w-8 sm:h-8" src={arrowRight} alt="Arrow right" />
+                        </div>
                     </div>
                 </div>
             </section>
