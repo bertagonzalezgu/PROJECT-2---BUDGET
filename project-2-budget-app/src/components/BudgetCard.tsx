@@ -8,7 +8,7 @@ interface BudgetCardProps{
 export default function BudgetCard({budget} : BudgetCardProps){
 
     return (
-        <Link to={`/pressupost/${budget.id}`} className="group block">
+        <Link to={`/budget?id=${budget.id}`} className="group block">
             <section className="container rounded-3xl shadow-md p-8 my-5 border flex flex-row max-w-3xl mx-auto bg-white border-gray-100 justify-between items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-blue-50/50 hover:border-blue-200">
                 <div>
                     <h2 className="text-2xl font-bold text-gray-800 mb-1">{budget.name}</h2>

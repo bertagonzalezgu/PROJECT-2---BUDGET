@@ -10,7 +10,7 @@ import useBudgetList from '../hooks/useBudgetList'
 import BudgetList from '../components/BudgetList'
 import useBudgetCalculator from '../hooks/useBudgetCalculator'
 import { Routes, Route } from "react-router-dom"
-import BudgetDetailWrapper from '../components/BudgetDetailWrapper'
+import BudgetDetailPage from './BudgetDetailPage'
 
 export default function App(){
     
@@ -82,7 +82,7 @@ export default function App(){
         </main>
         </div>
         } />
-        <Route path="/pressupost/:id" element={<BudgetDetailWrapper budgets={budgets} />} />
+        <Route path="/budget" element={<BudgetDetailPage budgets={budgets}/>}/>
         </Routes>             
     );
 };
