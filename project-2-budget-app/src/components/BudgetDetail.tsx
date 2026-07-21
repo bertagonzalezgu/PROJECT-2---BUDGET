@@ -5,6 +5,7 @@ import type { Service } from '../types/service.types'
 import { formatDate } from '../utils/formatDate'
 import { Link } from 'react-router-dom'
 import arrowLeft from '../assets/icons/arrow_left_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import { useState } from 'react'
 
 interface BudgetDetailProps{
     budget: Budget
@@ -12,12 +13,15 @@ interface BudgetDetailProps{
 
 export default function BudgetDetail({budget}: BudgetDetailProps){
 
+    const [copied, setCopied] = useState(false);
+
     const confirmedServices = budget.checkedServices.map((name) => DataServices.services.find(service => service.title === name)).filter((service): service is Service => service !== undefined)
     
     const servicesWithPrice = confirmedServices.map((service) => ({name: service.title, price: getServicePrice(service, budget.webConfig)}))
 
     const handleCopyUrl = () => {
         navigator.clipboard.writeText(window.location.href);
+        setCopied(true);
     };
 
     return (
@@ -33,7 +37,7 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
                         <h1 className="text-3xl font-extrabold text-gray-800 tracking-tight py-4">Desglossament del pressupost</h1>
                         <p className="text-sm font-medium text-gray-400 mt-1">Nº de pressupost: <span className="font-bold text-gray-600">#{budget.id}</span>
                         </p>
-                        <button onClick={handleCopyUrl}>Copiar URL</button>
+                        <button onClick={handleCopyUrl}>{copied? "Copiat!" : "Copiar URL"}</button>
                     </div>
                     <div className="bg-blue-50/50 border-blue-200 border px-4 py-2 rounded-2xl self-start sm:self-auto">
                         <span className="text-xs text-blue-600 font-semibold uppercase tracking-wider block">Data de creació</span>
