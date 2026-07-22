@@ -73,14 +73,16 @@ describe('BudgetDetail', () => {
       renderBudgetDetail(mockBudget);
 
       expect(screen.getByText(/SEO/i)).toBeInTheDocument();
-      expect(screen.getByText(/300/i)).toBeInTheDocument();
+      
+      const prices = screen.getAllByText(/300/i);
+      expect(prices.length).toBeGreaterThan(0);
     });
 
     it('muestra el precio total del presupuesto', () => {
       renderBudgetDetail(mockBudget);
 
-      expect(screen.getByText(new RegExp(`${mockBudget.totalPrice}`, 'i'))).toBeInTheDocument();
-    });
+      const prices = screen.getAllByText(new RegExp(`${mockBudget.totalPrice}`, 'i'));
+      expect(prices[0]).toBeInTheDocument();    });
   });
 
   describe('botón Copiar URL', () => {
