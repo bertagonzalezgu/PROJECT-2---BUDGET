@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/idGenerator.ts</title>
+    <title>Code coverage report for utils/formatDate.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> idGenerator.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">utils</a> formatDate.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -72,39 +72,24 @@
 <a name='L7'></a><a href='#L7'>7</a>
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
-<a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L10'></a><a href='#L10'>10</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { FormInputs } from "../types/form.types";
-import type { Budget } from "../types/budget.types";
-import type { WebConfig } from "../types/service.types";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 &nbsp;
-export default function budgetGenerator(data: FormInputs, checkedServices: string[], totalPrice: number, webConfig?: WebConfig): Budget{
-&nbsp;
-    const newBudget = { id: crypto.randomUUID(),
-                        creationDate: new Date().toISOString(),
-                        ...data,
-                        checkedServices,
-                        totalPrice,
-                        webConfig};
-&nbsp;
-                        return newBudget;
+export function formatDate(isoString: string): string{
+    const date = new Date(isoString);
+    return date.toLocaleDateString("ca-ES", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    });
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

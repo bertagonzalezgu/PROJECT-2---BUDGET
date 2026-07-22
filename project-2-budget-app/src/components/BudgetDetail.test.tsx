@@ -5,10 +5,12 @@ import BudgetDetail from './BudgetDetail';
 import type { Budget } from '../types/budget.types';
 
 vi.mock('jspdf', () => ({
-  default: vi.fn().mockImplementation(() => ({
-    addImage: vi.fn(),
-    save: vi.fn(),
-  })),
+  default: vi.fn().mockImplementation(function () {
+    return {
+      addImage: vi.fn(),
+      save: vi.fn(),
+    };
+  }),
 }));
 
 vi.mock('html2canvas-pro', () => ({

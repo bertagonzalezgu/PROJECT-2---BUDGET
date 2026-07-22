@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/priceCalculator.ts</title>
+    <title>Code coverage report for hooks/useSearchFilter.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> priceCalculator.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">hooks</a> useSearchFilter.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>17/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>12/16</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">94.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>16/17</span>
             </div>
         
             
@@ -88,56 +88,95 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">47x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">90x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { Service, WebConfig } from "../types/service.types";
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
+import type { Budget } from '../types/budget.types'
 &nbsp;
+export default function useSearchFilter(budgets: Budget[]){
 &nbsp;
-export function getServicePrice(service: Service, configs?: WebConfig): number{
-    let servicePrice;
+    const [searchTerm, setSearchTerm] = useState('')
 &nbsp;
-        if(service.title === "Web"){
-            if(configs === undefined){
-                servicePrice = service.price
-            }else{
-                servicePrice = service.price + (configs.pages + configs.languages) * 30
-            }
-        }else{
-            servicePrice = service.price
-        }
+    const [sortField, setSortField] = useState('date');
+    const [sortDirection, setSortDirection] = useState('desc');
 &nbsp;
-        return servicePrice
-}
+    function handleSortFilter(field: string){ 
+        if(field === sortField){ 
+        setSortDirection(sortDirection === "desc" ? "asc" : <span class="branch-1 cbranch-no" title="branch not covered" >"desc") </span>
+        } else { 
+        setSortField(field) 
+        setSortDirection("desc") 
+        }};
 &nbsp;
-export default function calculatePrice(services: Service[], selectedIds: Set&lt;number&gt;, configs : WebConfig){
+    const sortedBudgets = [...budgets].sort((a, b) =&gt; {
+        if (sortField === "date") { 
+        return sortDirection === "asc" 
+        ? new Date(a.creationDate).getTime() - new Date(b.creationDate).getTime() 
+        : new Date(b.creationDate).getTime() - new Date(a.creationDate).getTime(); 
+        } else if (sortField === "amount") { 
+        return sortDirection === "asc" 
+        ? <span class="branch-0 cbranch-no" title="branch not covered" >a.totalPrice - b.totalPrice </span>
+        : b.totalPrice - a.totalPrice 
+        } else if(sortField === "name"){ 
+        return sortDirection === "asc" 
+        ? <span class="branch-0 cbranch-no" title="branch not covered" >a.name.localeCompare(b.name)</span>
+        : b.name.localeCompare(a.name)
+        } else<span class="missing-if-branch" title="else path not taken" >E</span>{
+<span class="cstat-no" title="statement not covered" >            return 0;</span>
+        }});
 &nbsp;
-    const totalPrice = services
-                        .filter(service =&gt; selectedIds.has(service.id))
-                        .reduce((suma, service) =&gt; suma + getServicePrice(service, configs), 0);
-        return totalPrice;   
+    const filteredBudgets = sortedBudgets.filter((budget) =&gt; budget.name.toLowerCase().includes(searchTerm.toLowerCase()))
+&nbsp;
+    return {searchTerm, sortDirection, sortField, filteredBudgets, handleSortFilter, setSearchTerm}
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

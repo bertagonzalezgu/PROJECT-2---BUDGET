@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/idGenerator.ts</title>
+    <title>Code coverage report for components/PriceCounter.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> idGenerator.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> PriceCounter.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -73,39 +73,27 @@
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L11'></a><a href='#L11'>11</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { FormInputs } from "../types/form.types";
-import type { Budget } from "../types/budget.types";
-import type { WebConfig } from "../types/service.types";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type {PriceCounterProps} from '../types/budget.types';
 &nbsp;
-export default function budgetGenerator(data: FormInputs, checkedServices: string[], totalPrice: number, webConfig?: WebConfig): Budget{
+export default function PriceCounter({total}:PriceCounterProps){
 &nbsp;
-    const newBudget = { id: crypto.randomUUID(),
-                        creationDate: new Date().toISOString(),
-                        ...data,
-                        checkedServices,
-                        totalPrice,
-                        webConfig};
-&nbsp;
-                        return newBudget;
-}</pre></td></tr></table></pre>
+    return( 
+        &lt;section className="bg-white rounded-3xl shadow-md p-8 my-5 border border-gray-100 flex justify-between max-w-xs mr-0 ml-auto"&gt;
+            &lt;h2 className="text-2xl font-bold text-gray-800 mb-1"&gt;Preu total: &lt;/h2&gt;  
+            &lt;span className="text-3xl font-extrabold text-gray-800" aria-live='polite'&gt;{total}€&lt;/span&gt;
+        &lt;/section&gt;          
+    );
+};</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
