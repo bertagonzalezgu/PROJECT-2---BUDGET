@@ -51,13 +51,11 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
     return (
         <div className="max-w-3xl mx-auto my-8 p-5 font-[Montserrat]">
             
-            {/* Barra superior con volver y acciones */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <Link to="/" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded-2xl shadow-sm transition-all font-semibold text-sm cursor-pointer">
                     <img src={arrowLeft} alt="Arrow left" className="w-5 h-5"/>Tornar
                 </Link>
 
-                {/* Botones de acción FUERA del PDF ref */}
                 <div className="flex gap-2">
                     <button 
                         className="bg-blue-50 hover:bg-blue-100 text-blue-700 border-blue-200 border px-4 py-2 rounded-2xl text-sm font-semibold transition-all cursor-pointer" 
@@ -74,7 +72,6 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
                 </div>
             </div>
 
-            {/* Contenido a imprimir en el PDF (limpio sin botones dentro) */}
             <div ref={refContent} className="bg-white rounded-3xl shadow-md p-8 border border-gray-300 space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-gray-100 gap-4">
                     <div>
