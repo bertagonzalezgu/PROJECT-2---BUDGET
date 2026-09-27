@@ -7,7 +7,7 @@ describe('getServicePrice', () => {
     const seoService: Service = {
       id: 1,
       title: 'SEO',
-      description: 'Posicionament orgànic al cercador per atraure trànsit qualificat',
+      description: 'Posicionamiento orgánico en buscadores para atraer tráfico cualificado',
       price: 300,
     };
 
@@ -20,7 +20,7 @@ describe('getServicePrice', () => {
     const webService: Service = {
       id: 2,
       title: 'Web',
-      description: "Disseny i desenvolupament d'una web responsive a mida",
+      description: "Diseño y desarrollo de una web responsive a medida",
       price: 500,
     };
     const webConfig: WebConfig = {
@@ -37,7 +37,7 @@ describe('getServicePrice', () => {
     const mockWebService: Service = {
       id: 2,
       title: 'Web',
-      description: "Disseny i desenvolupament d'una web responsive a mida",
+      description: "Diseño y desarrollo de una web responsive a medida",
       price: 500,
     };
 

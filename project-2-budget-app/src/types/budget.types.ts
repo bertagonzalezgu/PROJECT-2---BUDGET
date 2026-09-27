@@ -14,3 +14,7 @@ export interface Budget extends UniqueId, FormInputs{
     totalPrice: number;
     webConfig?: WebConfig
 }
+
+export interface BudgetCardProps {
+    budget: Budget
+}

@@ -97,24 +97,24 @@ describe('BudgetDetail', () => {
       expect(navigator.clipboard.writeText).toHaveBeenCalled();
     });
 
-    it('cambia el texto del botón a "Copiat!" tras el clic', () => {
+    it('cambia el texto del botón a "¡Copiada!" tras el clic', () => {
       renderBudgetDetail(mockBudget);
 
       const button = screen.getByText('Copiar URL');
       fireEvent.click(button);
 
-      expect(screen.getByText('Copiat!')).toBeInTheDocument();
+      expect(screen.getByText('¡Copiada!')).toBeInTheDocument();
     });
   });
 
-  describe('botón Descarregar PDF', () => {
-    it('cambia el texto del botón a "Descarregat!" tras el clic', () => {
+  describe('botón Descargar PDF', () => {
+    it('cambia el texto del botón a "¡Descargado!" tras el clic', () => {
       renderBudgetDetail(mockBudget);
 
-      const button = screen.getByText('Descarregar PDF');
+      const button = screen.getByText('Descargar PDF');
       fireEvent.click(button);
 
-      expect(screen.getByText('Descarregat!')).toBeInTheDocument();
+      expect(screen.getByText('¡Descargado!')).toBeInTheDocument();
     });
   });
 

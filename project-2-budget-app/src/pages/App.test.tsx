@@ -3,9 +3,9 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-function renderApp() {
+function renderApp(initialPath = '/servicios') {
   render(
-    <MemoryRouter initialEntries={['/']}>
+    <MemoryRouter initialEntries={[initialPath]}>
       <App />
     </MemoryRouter>
   );
@@ -15,6 +15,23 @@ describe('App', () => {
 
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  describe('onboarding', () => {
+    it('muestra la página de bienvenida en la ruta raíz', () => {
+      renderApp('/');
+
+      expect(screen.getByRole('heading', { level: 1, name: /Impulsa tu negocio/i })).toBeInTheDocument();
+      expect(screen.queryByRole('checkbox', { name: /SEO/i })).not.toBeInTheDocument();
+    });
+
+    it('navega al configurador de servicios al pulsar "Empezar mi presupuesto"', () => {
+      renderApp('/');
+
+      fireEvent.click(screen.getByRole('link', { name: /Empezar mi presupuesto/i }));
+
+      expect(screen.getByRole('checkbox', { name: /SEO/i })).toBeInTheDocument();
+    });
   });
 
   describe('renderizado inicial', () => {
@@ -29,7 +46,7 @@ describe('App', () => {
     it('no muestra el formulario de cliente si no hay ningún servicio seleccionado', () => {
       renderApp();
 
-      expect(screen.queryByPlaceholderText(/Nom/i)).not.toBeInTheDocument();
+      expect(screen.queryByPlaceholderText(/Nombre/i)).not.toBeInTheDocument();
     });
   });
 
@@ -40,7 +57,7 @@ describe('App', () => {
       const seoCheckbox = screen.getByRole('checkbox', { name: /SEO/i });
       fireEvent.click(seoCheckbox);
 
-      expect(screen.getByPlaceholderText(/Nom/i)).toBeInTheDocument();
+      expect(screen.getByPlaceholderText(/Nombre/i)).toBeInTheDocument();
     });
 
     it('muestra el WebConfigurator al seleccionar el servicio Web', () => {
@@ -49,7 +66,7 @@ describe('App', () => {
       const webCheckbox = screen.getByRole('checkbox', { name: /Web/i });
       fireEvent.click(webCheckbox);
 
-      expect(screen.getByText(/Nombre de pàgines/i)).toBeInTheDocument();
+      expect(screen.getByText(/Número de páginas/i)).toBeInTheDocument();
     });
 
     it('actualiza el precio total al seleccionar un servicio', () => {
@@ -70,11 +87,11 @@ describe('App', () => {
   const seoCheckbox = screen.getByRole('checkbox', { name: /SEO/i });
   fireEvent.click(seoCheckbox);
 
-  fireEvent.change(screen.getByPlaceholderText(/Nom/i), { target: { value: 'Ona Costa' } });
-  fireEvent.change(screen.getByPlaceholderText(/Telèfon/i), { target: { value: '600000000' } });
+  fireEvent.change(screen.getByPlaceholderText(/Nombre/i), { target: { value: 'Ona Costa' } });
+  fireEvent.change(screen.getByPlaceholderText(/Teléfono/i), { target: { value: '600000000' } });
   fireEvent.change(screen.getByPlaceholderText(/Email/i), { target: { value: 'ona@example.com' } });
 
-  const submitButton = screen.getByRole('button', { name: /Sol·licitar pressupost/i });
+  const submitButton = screen.getByRole('button', { name: /Solicitar presupuesto/i });
   fireEvent.click(submitButton);
 
   expect(await screen.findByText('Ona Costa')).toBeInTheDocument();
@@ -86,15 +103,15 @@ it('resetea la selección de servicios tras enviar el formulario', async () => {
     const seoCheckbox = screen.getByRole('checkbox', { name: /SEO/i });
     fireEvent.click(seoCheckbox);
 
-    fireEvent.change(screen.getByPlaceholderText(/Nom/i), { target: { value: 'Test User' } });
-    fireEvent.change(screen.getByPlaceholderText(/Telèfon/i), { target: { value: '600000000' } });
+    fireEvent.change(screen.getByPlaceholderText(/Nombre/i), { target: { value: 'Test User' } });
+    fireEvent.change(screen.getByPlaceholderText(/Teléfono/i), { target: { value: '600000000' } });
     fireEvent.change(screen.getByPlaceholderText(/Email/i), { target: { value: 'test@example.com' } });
 
-    const submitButton = screen.getByRole('button', { name: /Sol·licitar pressupost/i });
+    const submitButton = screen.getByRole('button', { name: /Solicitar presupuesto/i });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-        expect(screen.queryByPlaceholderText(/Nom i cognoms/i)).not.toBeInTheDocument();
+        expect(screen.queryByPlaceholderText(/Nombre y apellidos/i)).not.toBeInTheDocument();
     });
     });
   });

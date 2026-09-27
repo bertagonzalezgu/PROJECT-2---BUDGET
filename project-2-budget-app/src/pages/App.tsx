@@ -11,6 +11,7 @@ import BudgetList from '../components/BudgetList'
 import useBudgetCalculator from '../hooks/useBudgetCalculator'
 import { Routes, Route } from "react-router-dom"
 import BudgetDetailPage from './BudgetDetailPage'
+import OnboardingPage from './OnboardingPage'
 
 export default function App(){
     
@@ -25,14 +26,14 @@ export default function App(){
         return (
             <li key={element.id} className={`rounded-3xl shadow-md p-8 my-5 border flex flex-col max-w-3xl mx-auto transition-all duration-200 ${
                 isServiceSelected 
-                    ? "bg-blue-50/50 border-blue-200" 
+                    ? "bg-indigo-50/50 border-indigo-200" 
                     : "bg-white border-gray-100"
             }`}>
                 <div className="flex items-center justify-between w-full">
                     <ServiceCard serviceData={element} isServiceSelected={selectedServices.has(element.id)} onToggle={toggleService}/>
                 </div>    
                     {element.title === "Web" && selectedServices.has(element.id) && (
-                        <div className="mt-6 pt-6 border-t border-blue-100 w-full animate-fadeIn">
+                        <div className="mt-6 pt-6 border-t border-indigo-100 w-full animate-fadeIn">
                             <WebConfigurator webConfig={webConfig} onPagesChange={pagesCounter} onLanguagesChange={languagesCounter}/>
                         </div>
                     )}
@@ -52,7 +53,7 @@ export default function App(){
         const saveWebConfig = isWebSelected? webConfig : undefined;
         const newBudgetCreated = budgetGenerator(dataFormInputs, selectedServicesNames, totalPriceServicesSelected, saveWebConfig);
 
-        console.log("Pressupost generat:", newBudgetCreated);
+        console.log("Presupuesto generado:", newBudgetCreated);
 
         addBudgetToList(newBudgetCreated);
         resetSelection()
@@ -60,11 +61,15 @@ export default function App(){
                                     
     return (
         <Routes>
-        <Route path="/" element={
-            <div className='min-h-screen bg-gray-50/50 py-6 px-4 sm:py-10 sm:px-6 lg:px-8 font-[Montserrat] text-gray-800'>
+        <Route path="/" element={<OnboardingPage/>}/>
+        <Route path="/servicios" element={
+            <div className='min-h-screen py-6 px-4 sm:py-10 sm:px-6 lg:px-8 font-[Montserrat] text-gray-800'>
                 <div className="w-full mx-auto space-y-8">
-                <header className="relative bg-linear-to-bl from-white to-blue-200 rounded-2xl sm:rounded-3xl shadow-sm p-8 sm:p-12 md:p-16 flex items-center justify-center border border-gray-100 overflow-hidden text-center">
-                    <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 tracking-wide">Aconsegueix la millor qualitat</h1>
+                <header className="relative bg-indigo-600 rounded-2xl sm:rounded-3xl shadow-md px-6 py-12 sm:px-12 sm:py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden text-center">
+                    <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/10"></div>
+                    <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 -left-20 w-72 h-72 rounded-full bg-indigo-400/30"></div>
+                    <p className="relative text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-indigo-100 mb-3">Digitalify Agency</p>
+                    <h1 className="relative text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight max-w-2xl">Servicios digitales a medida para hacer crecer tu negocio</h1>
                 </header>
                 <main className="max-w-3xl mx-auto">
                     <ul className='list-none p-0 m-0 space-y-6'>
@@ -76,7 +81,7 @@ export default function App(){
                                     <ClientForm onClientSubmit={handleClientSubmit}/>
                                 </div>
                         )}
-                        <hr className="mt-6 pt-6 border-t border-blue-200 w-fill"/>
+                        <hr className="mt-6 pt-6 border-t border-indigo-200 w-full"/>
                         <div>
                             <BudgetList budgets={budgets}/>
                         </div>
