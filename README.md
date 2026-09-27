@@ -10,7 +10,7 @@ https://project-2-budget.vercel.app/
 
 ## Repository
 
-https://github.com/bertagonzalezgu/PROJECT-2---BUDGET
+https://github.com/bertagonzalezgu/budget-app
 
 ---
 
