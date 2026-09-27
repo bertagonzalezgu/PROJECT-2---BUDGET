@@ -6,7 +6,7 @@ Users can select different services, configure website development options, ente
 
 ## Live Demo
 
-https://project-2-budget.vercel.app/
+https://bertagonzalez-budget-app.vercel.app/
 
 ## Repository
 
@@ -135,7 +135,7 @@ src/
 Clone the repository:
 
 ```bash
-git clone https://github.com/bertagonzalezgu/PROJECT-2---BUDGET.git
+git clone https://github.com/bertagonzalezgu/budget-app.git
 ```
 
 Navigate to the project folder:
