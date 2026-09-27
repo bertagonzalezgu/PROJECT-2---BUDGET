@@ -11,6 +11,7 @@ import BudgetList from '../components/BudgetList'
 import useBudgetCalculator from '../hooks/useBudgetCalculator'
 import { Routes, Route } from "react-router-dom"
 import BudgetDetailPage from './BudgetDetailPage'
+import OnboardingPage from './OnboardingPage'
 
 export default function App(){
     
@@ -60,8 +61,9 @@ export default function App(){
                                     
     return (
         <Routes>
-        <Route path="/" element={
-            <div className='min-h-screen bg-gray-50/50 py-6 px-4 sm:py-10 sm:px-6 lg:px-8 font-[Montserrat] text-gray-800'>
+        <Route path="/" element={<OnboardingPage/>}/>
+        <Route path="/servicios" element={
+            <div className='min-h-screen py-6 px-4 sm:py-10 sm:px-6 lg:px-8 font-[Montserrat] text-gray-800'>
                 <div className="w-full mx-auto space-y-8">
                 <header className="relative bg-indigo-600 rounded-2xl sm:rounded-3xl shadow-md px-6 py-12 sm:px-12 sm:py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden text-center">
                     <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/10"></div>

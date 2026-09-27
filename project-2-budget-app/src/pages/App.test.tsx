@@ -3,9 +3,9 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-function renderApp() {
+function renderApp(initialPath = '/servicios') {
   render(
-    <MemoryRouter initialEntries={['/']}>
+    <MemoryRouter initialEntries={[initialPath]}>
       <App />
     </MemoryRouter>
   );
@@ -15,6 +15,23 @@ describe('App', () => {
 
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  describe('onboarding', () => {
+    it('muestra la página de bienvenida en la ruta raíz', () => {
+      renderApp('/');
+
+      expect(screen.getByRole('heading', { level: 1, name: /Impulsa tu negocio/i })).toBeInTheDocument();
+      expect(screen.queryByRole('checkbox', { name: /SEO/i })).not.toBeInTheDocument();
+    });
+
+    it('navega al configurador de servicios al pulsar "Empezar mi presupuesto"', () => {
+      renderApp('/');
+
+      fireEvent.click(screen.getByRole('link', { name: /Empezar mi presupuesto/i }));
+
+      expect(screen.getByRole('checkbox', { name: /SEO/i })).toBeInTheDocument();
+    });
   });
 
   describe('renderizado inicial', () => {

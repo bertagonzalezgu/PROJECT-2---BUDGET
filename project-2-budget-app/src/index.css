@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    min-height: 100vh;
+    font-family: "Montserrat", var(--font-sans);
+    background-color: var(--color-indigo-50);
+    background-image: linear-gradient(160deg, var(--color-indigo-100) 0%, var(--color-blue-50) 45%, var(--color-indigo-100) 100%);
+    background-attachment: fixed;
+  }
+}

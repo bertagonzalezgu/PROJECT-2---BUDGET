@@ -56,7 +56,7 @@ export default function BudgetDetail({budget}: BudgetDetailProps){
         <div className="max-w-3xl mx-auto my-8 p-5 font-[Montserrat]">
             
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                <Link to="/" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded-2xl shadow-sm transition-all font-semibold text-sm cursor-pointer">
+                <Link to="/servicios" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded-2xl shadow-sm transition-all font-semibold text-sm cursor-pointer">
                     <img src={arrowLeft} alt="" aria-hidden="true" className="w-5 h-5"/>Volver
                 </Link>
 
