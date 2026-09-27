@@ -12,7 +12,7 @@ export default function BudgetDetailPage({ budgets }: BudgetDetailPageProps) {
     const budget = budgets.find(b => b.id === budgetId);
 
     if(!budget){
-        return <p>No s'ha trobat cap pressupost amb aquest identificador.</p>;
+        return <p>No se ha encontrado ningún presupuesto con este identificador.</p>;
     }
     
     return <BudgetDetail budget={budget} />;

@@ -26,14 +26,14 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
                     <img src={info} alt="Icono de información"/>
                 </button>
                 <div>
-                    <h3 className="text-base font-medium tracking-wider text-gray-700">Nombre de pàgines: </h3>
+                    <h3 className="text-base font-medium tracking-wider text-gray-700">Número de páginas: </h3>
                 </div>
                 <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm">
-                    <button onClick={() => onPagesChange(webConfig.pages -1)} aria-label= {`Menys pàgines ${webConfig.pages}`}>
+                    <button onClick={() => onPagesChange(webConfig.pages -1)} aria-label= {`Menos páginas ${webConfig.pages}`}>
                         <img src={subtract} alt="Subtract icon" className="w-4 h-4"/>
                     </button>                  
                     <span className="text-base font-semibold text-center text-gray-800 w-6 tabular-nums" aria-live='polite'>{webConfig.pages}</span> 
-                    <button onClick={() => onPagesChange(webConfig.pages +1)} aria-label={`Més pàgines ${webConfig.pages}`}>
+                    <button onClick={() => onPagesChange(webConfig.pages +1)} aria-label={`Más páginas ${webConfig.pages}`}>
                         <img src={add} alt="Add icon" className="w-4 h-4"/>  
                     </button>
                 </div>
@@ -46,14 +46,14 @@ export default function WebConfigurator({webConfig, onLanguagesChange, onPagesCh
                     <img src={info} alt="Icono de información"/>
                 </button>
                 <div>
-                    <h3 className="text-base font-medium tracking-wider text-gray-700">Nombre d'idiomes: </h3>
+                    <h3 className="text-base font-medium tracking-wider text-gray-700">Número de idiomas: </h3>
                 </div>
                 <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-gray-200 shadow-sm">
-                    <button onClick={() => onLanguagesChange(webConfig.languages -1)} aria-label={`Menys idiomes ${webConfig.languages}`}>
+                    <button onClick={() => onLanguagesChange(webConfig.languages -1)} aria-label={`Menos idiomas ${webConfig.languages}`}>
                         <img src={subtract}  alt="Subtract icon" className="w-4 h-4"/> 
                     </button>
                     <span className="text-base font-semibold text-center text-gray-800 w-6 tabular-nums" aria-live='polite'>{webConfig.languages}</span>   
-                    <button onClick={() => onLanguagesChange(webConfig.languages +1)} aria-label={`Més idiomes ${webConfig.languages}`}>
+                    <button onClick={() => onLanguagesChange(webConfig.languages +1)} aria-label={`Más idiomas ${webConfig.languages}`}>
                         <img src={add} alt="Add icon" className="w-4 h-4"/>
                     </button>
                 </div>

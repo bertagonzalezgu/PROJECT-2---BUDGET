@@ -37,7 +37,7 @@ describe('WebConfigurator', () => {
     it('llama a onPagesChange con pages + 1 al pulsar el botón de sumar', () => {
         const { onPagesChange } = renderWebConfigurator();
 
-        const addButton = screen.getByLabelText('Més pàgines 3');
+        const addButton = screen.getByLabelText('Más páginas 3');
         fireEvent.click(addButton);
 
         expect(onPagesChange).toHaveBeenCalledWith(4);
@@ -46,7 +46,7 @@ describe('WebConfigurator', () => {
     it('llama a onPagesChange con pages - 1 al pulsar el botón de restar', () => {
         const { onPagesChange } = renderWebConfigurator();
 
-        const subtractButton = screen.getByLabelText('Menys pàgines 3');
+        const subtractButton = screen.getByLabelText('Menos páginas 3');
         fireEvent.click(subtractButton);
 
         expect(onPagesChange).toHaveBeenCalledWith(2);
@@ -57,7 +57,7 @@ describe('WebConfigurator', () => {
     it('llama a onLanguagesChange con languages + 1 al pulsar el botón de sumar', () => {
       const { onLanguagesChange } = renderWebConfigurator();
 
-      const addButton = screen.getByLabelText('Més idiomes 2');
+      const addButton = screen.getByLabelText('Más idiomas 2');
       fireEvent.click(addButton);
 
       expect(onLanguagesChange).toHaveBeenCalledWith(3);
@@ -66,7 +66,7 @@ describe('WebConfigurator', () => {
     it('llama a onLanguagesChange con languages - 1 al pulsar el botón de restar', () => {
       const { onLanguagesChange } = renderWebConfigurator();
 
-      const subtractButton = screen.getByLabelText('Menys idiomes 2');
+      const subtractButton = screen.getByLabelText('Menos idiomas 2');
       fireEvent.click(subtractButton);
 
       expect(onLanguagesChange).toHaveBeenCalledWith(1);
